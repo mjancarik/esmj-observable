@@ -54,6 +54,10 @@
       "path": "git-cz"
     }
   },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
+  },
   "homepage": "https://github.com/mjancarik/esmj-observable#readme",
   "devDependencies": {
     "@commitlint/cli": "^17.3.0",
