@@ -1,6 +1,6 @@
 {
   "name": "@esmj/observable",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Tiny observable library for other extensibility",
   "keywords": [
     "observable",
@@ -65,6 +65,7 @@
     "commitizen": "^4.2.5",
     "coveralls": "^3.1.1",
     "cross-env": "^7.0.3",
+    "conventional-changelog-cli": "^2.2.2",
     "cz-conventional-changelog": "^3.3.0",
     "esbuild-jest": "^0.5.0",
     "eslint": "^8.29.0",
