@@ -14,5 +14,6 @@
 utils/
 README.md
 CHANGELOG.md
-rollup.config.js
+tsup.config.mjs
 jest.config.js
+setupJest.mjs
