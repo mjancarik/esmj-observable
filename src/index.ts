@@ -20,6 +20,12 @@ export interface IObservable {
   unsubscribe(observer: IObserver): void;
 }
 
+export class Observer implements IObserverObject {
+  next() {}
+  error() {}
+  complete() {}
+}
+
 export class Observable implements IObservable {
   #observers: IObserver[] = [];
 

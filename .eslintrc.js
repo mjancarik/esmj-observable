@@ -16,6 +16,8 @@ module.exports = {
       },
     ],
 
+    '@typescript-eslint/no-empty-function': ['error', { allow: ['methods'] }],
+
     'no-console': [
       'error',
       {
