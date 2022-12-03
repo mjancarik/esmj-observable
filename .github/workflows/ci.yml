@@ -52,6 +52,8 @@ jobs:
         run: npm test -- --coverage
       - name: Linter
         run: npm run lint
+      - name: Build
+        run: npm run build
 
   publish:
     if: github.event_name == 'push' && contains(github.ref, '/tags/v')
