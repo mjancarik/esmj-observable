@@ -11,12 +11,17 @@ export interface IObserverObject {
 
 export type IObserver = IObserverObject | IObserverFunction;
 
+export type Subscription = {
+  unsubscribe: () => void;
+  [props: string]: unknown;
+};
+
 export interface IObservable {
   pipe<T extends IObservable>(...operations: ((operation: T) => T)[]): T;
   next(...rest: unknown[]): void;
   error(...rest: unknown[]): void;
   complete(...rest: unknown[]): void;
-  subscribe(observer: IObserver): () => void;
+  subscribe(observer: IObserver): Subscription;
   unsubscribe(observer: IObserver): void;
 }
 
@@ -61,8 +66,10 @@ export class Observable implements IObservable {
   subscribe(observer: IObserver) {
     this.#observers.push(observer);
 
-    return () => {
-      this.unsubscribe(observer);
+    return {
+      unsubscribe: () => {
+        this.unsubscribe(observer);
+      },
     };
   }
 

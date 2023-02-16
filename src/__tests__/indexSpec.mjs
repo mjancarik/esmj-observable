@@ -60,7 +60,7 @@ describe('Observable', () => {
     it('register new observer', () => {
       const observer = jest.fn();
 
-      const unsubscribe = observable.subscribe(observer);
+      const { unsubscribe } = observable.subscribe(observer);
       observable.next(1, 2, 3);
       unsubscribe();
       observable.next(4, 5, 6);
