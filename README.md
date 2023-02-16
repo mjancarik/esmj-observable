@@ -27,7 +27,7 @@ const observer: IObserver = {
 
 const observable: IObservable = new Observable();
 
-const unsubscribe = observable.subscribe(observer);
+const { unsubscribe } = observable.subscribe(observer);
 
 observable.next('Hello world'); // log: Hello world
 
@@ -53,7 +53,7 @@ Monitoring start measure node metric.
 #### subscribe(observer)
 Subscribe observer.
 
-Returns an unsubscribe method.
+Returns an subscription object with unsubscribe method.
 
 ##### observer
 Type: `() => void | { next: () => void, error?: () => void, complete?: () => void}`
