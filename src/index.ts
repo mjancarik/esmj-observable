@@ -9,6 +9,10 @@ export interface IObserverObject {
   complete?: (...rest: unknown[]) => void;
 }
 
+export interface IExtendable {
+  pipe<T extends IObservable>(...operations: ((operation: T) => T)[]): T;
+}
+
 export type IObserver = IObserverObject | IObserverFunction;
 
 export type Subscription = {
@@ -16,11 +20,7 @@ export type Subscription = {
   [props: string]: unknown;
 };
 
-export interface IObservable {
-  pipe<T extends IObservable>(...operations: ((operation: T) => T)[]): T;
-  next(...rest: unknown[]): void;
-  error(...rest: unknown[]): void;
-  complete(...rest: unknown[]): void;
+export interface IObservable extends IObserverObject, IExtendable {
   subscribe(observer: IObserver): Subscription;
   unsubscribe(observer: IObserver): void;
 }
