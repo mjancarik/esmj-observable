@@ -1,3 +1,12 @@
+## [0.1.1](https://github.com/mjancarik/esmj-observable/compare/v0.1.0...v0.1.1) (2023-05-26)
+
+
+### Features
+
+* 🎸 add pipe method to exports ([d972eba](https://github.com/mjancarik/esmj-observable/commit/d972eba783546bd730d0fb3dcfae1e2cc3a4d6c0))
+
+
+
 # [0.1.0](https://github.com/mjancarik/esmj-observable/compare/v0.0.5...v0.1.0) (2023-02-16)
 
 
