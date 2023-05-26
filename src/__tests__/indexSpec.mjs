@@ -3,7 +3,7 @@ import { jest } from '@jest/globals';
 import * as main from '../index';
 
 const {
-  default: { Observable },
+  default: { Observable, pipe },
 } = main;
 
 describe('Observable', () => {
@@ -66,6 +66,17 @@ describe('Observable', () => {
       observable.next(4, 5, 6);
 
       expect(observer).toHaveBeenCalledTimes(1);
+    });
+  });
+
+  describe('pipe method', () => {
+    it('should call all defined functions with argument and return their result', () => {
+      expect(
+        pipe(
+          (x) => x + 1,
+          (x) => x + 2
+        )(0)
+      ).toEqual(3);
     });
   });
 });

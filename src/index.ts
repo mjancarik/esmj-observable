@@ -35,10 +35,7 @@ export class Observable implements IObservable {
   #observers: IObserver[] = [];
 
   pipe(...operations) {
-    return Array.from(operations).reduce(
-      (observable, operation) => operation(observable),
-      this
-    );
+    return pipe<IObservable>(...operations)(this);
   }
 
   next(...rest) {
@@ -78,4 +75,13 @@ export class Observable implements IObservable {
 
     this.#observers.splice(index, 1);
   }
+}
+
+export function pipe<T>(...operations: ((operation: T) => T)[]): (any: T) => T {
+  return (any: T): T => {
+    return Array.from(operations).reduce(
+      (any, operation) => operation(any),
+      any
+    );
+  };
 }
