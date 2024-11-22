@@ -1,6 +1,6 @@
 {
   "name": "@esmj/observable",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Tiny observable library for other extensibility",
   "keywords": [
     "observable",

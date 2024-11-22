@@ -1,3 +1,12 @@
+## [0.2.2](https://github.com/mjancarik/esmj-observable/compare/v0.2.1...v0.2.2) (2024-11-22)
+
+
+### Bug Fixes
+
+* 🐛 remove useless import ([6a2dd89](https://github.com/mjancarik/esmj-observable/commit/6a2dd89a2b35bb8a802dca6db1330b4059a555d9))
+
+
+
 ## [0.2.1](https://github.com/mjancarik/esmj-observable/compare/v0.2.0...v0.2.1) (2024-11-22)
 
 
