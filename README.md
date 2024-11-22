@@ -17,7 +17,7 @@ npm install @esmj/observable
 It works for both Javascript modules (ESM and CJS).
 
 ```javascript 
-import { Observable, IObservable, IObserver } from '@esmj/monitor';
+import { Observable, IObservable, IObserver } from '@esmj/observable';
 
 const observer: IObserver = {
   next(value) {
