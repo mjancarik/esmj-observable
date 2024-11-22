@@ -1,5 +1,3 @@
-import { extname } from 'path';
-
 export interface IObserverFunction {
   (...rest: unknown[]): void;
   [props: string]: any;
