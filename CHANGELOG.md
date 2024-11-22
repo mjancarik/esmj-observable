@@ -1,3 +1,7 @@
+## [0.2.1](https://github.com/mjancarik/esmj-observable/compare/v0.2.0...v0.2.1) (2024-11-22)
+
+
+
 # [0.2.0](https://github.com/mjancarik/esmj-observable/compare/v0.1.1...v0.2.0) (2024-11-22)
 
 
