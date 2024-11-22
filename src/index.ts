@@ -1,3 +1,5 @@
+import { extname } from 'path';
+
 export interface IObserverFunction {
   (...rest: unknown[]): void;
   [props: string]: any;
@@ -34,8 +36,8 @@ export class Observer implements IObserverObject {
 export class Observable implements IObservable {
   #observers: Set<IObserver> = new Set();
 
-  pipe(...operations) {
-    return pipe<IObservable>(...operations)(this);
+  pipe<T extends IObservable>(...operations) {
+    return pipe<T>(...operations)(this as unknown as T);
   }
 
   next(...rest) {
@@ -75,7 +77,9 @@ export class Observable implements IObservable {
   }
 }
 
-export function pipe<T>(...operations: ((operation: T) => T)[]): (any: T) => T {
+export function pipe<T extends IObservable>(
+  ...operations: ((operation: T) => T)[]
+): (any: T) => T {
   return (any: T): T => {
     return Array.from(operations).reduce(
       (any, operation) => operation(any),
