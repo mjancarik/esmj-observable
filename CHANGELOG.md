@@ -1,3 +1,17 @@
+# [0.2.0](https://github.com/mjancarik/esmj-observable/compare/v0.1.1...v0.2.0) (2024-11-22)
+
+
+### Features
+
+* 🎸 protection for multi subscribe same observer ([56a658c](https://github.com/mjancarik/esmj-observable/commit/56a658c8045bf89c117d8f51d46338dbf86f3db4))
+
+
+### BREAKING CHANGES
+
+* 🧨 Change storage for storing #observers from Array to Set.
+
+
+
 ## [0.1.1](https://github.com/mjancarik/esmj-observable/compare/v0.1.0...v0.1.1) (2023-05-26)
 
 
