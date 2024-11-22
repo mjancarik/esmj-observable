@@ -32,14 +32,14 @@ export class Observer implements IObserverObject {
 }
 
 export class Observable implements IObservable {
-  #observers: IObserver[] = [];
+  #observers: Set<IObserver> = new Set();
 
   pipe(...operations) {
     return pipe<IObservable>(...operations)(this);
   }
 
   next(...rest) {
-    this.#observers.forEach((observer: IObserver) => {
+    Array.from(this.#observers).forEach((observer: IObserver) => {
       typeof observer === 'function'
         ? observer(...rest)
         : observer.next(...rest);
@@ -47,21 +47,21 @@ export class Observable implements IObservable {
   }
 
   error(...rest) {
-    this.#observers.forEach((observer: IObserver) => {
+    Array.from(this.#observers).forEach((observer: IObserver) => {
       observer?.error?.(...rest);
       this.unsubscribe(observer);
     });
   }
 
   complete(...rest) {
-    this.#observers.forEach((observer: IObserver) => {
+    Array.from(this.#observers).forEach((observer: IObserver) => {
       observer?.complete?.(...rest);
       this.unsubscribe(observer);
     });
   }
 
   subscribe(observer: IObserver) {
-    this.#observers.push(observer);
+    this.#observers.add(observer);
 
     return {
       unsubscribe: () => {
@@ -71,9 +71,7 @@ export class Observable implements IObservable {
   }
 
   unsubscribe(observer: IObserver) {
-    const index = this.#observers.indexOf(observer);
-
-    this.#observers.splice(index, 1);
+    this.#observers.delete(observer);
   }
 }
 
